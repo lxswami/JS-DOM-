@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+
+    }
+
+    header {
+        width: 100%;
+        height: 82px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        display: flex;
+        align-items: center;
+        padding-left: 16px;
+        font-size: 30px;
+
+    }
+
+    nav {
+        width: 18%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        position: fixed;
+        top: 0;
+        right: -100%;
+        transition: 0.4s;
+
+
+    }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+<body>
+    <header>
+        <i onclick="menuOpen()" style="cursor: pointer;" id="bar" class="fa-solid fa-bars-staggered"></i>
+        <i onclick="menuClose()" style="display: none; font-size: 40px; cursor: pointer;" id="cross"
+            class="fa-solid fa-xmark"></i>
+        <nav id="menu"></nav>
+    </header>
+    <script>
+        var demo = (document.getElementById("bar"))
+        var menu = (document.getElementById("menu"))
+        function menuOpen() {
+            menu.style.right = "0%"
+            demo.style.display = "none"
+            cross.style.display = "block"
+        }
+
+        function menuClose() {
+            menu.style.right = "-100%"
+            cross.style.display = "none"
+            bar.style.display = "block"
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    #demo{
+        background-color: yellow;
+        color: green;
+        
+    }
+    
+
+</style>
+
+
+<body>
+    <h2 id="demo">Jaipur</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam perferendis doloribus illo pariatur voluptates
+        asperiores dolores maxime praesentium? Corporis quae quod repudiandae reiciendis fugiat cum esse illo unde,
+        quasi temporibus.</p>
+        <img src="cat-item1.jpg" alt="" height="400" width="400">
+        <button onclick="hello()">Click</button>
+        <script>
+            var demo = (document.getElementById("demo"))
+
+            function hello(){
+                demo.style.backgroundColor="green";
+                demo.innerText="Ajmer"
+                // demo.style.border="2px dashed yellow";
+                demo.style.color="yellow"
+            }
+        
+
+        </script>
+
+</body>
+
+</html>

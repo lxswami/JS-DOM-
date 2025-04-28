@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 20px;
+            padding: 8px;
+
+        }
+
+        .card {
+            width: 18%;
+            height: 150px;
+            /* border: 2px solid red; */
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .overlay {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            right: 0;
+            /* background-color: greenyellow; */
+            transform: scale(0);
+            transition: 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            text-decoration: dotted underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+    </div>
+    <div class="overlay">
+
+    </div>
+
+    <script>
+        var container = document.querySelector(".container")
+        var overlay = document.querySelector(".overlay")
+        var msg = ["WELL DONE !","COPIED !","GOT IT !","ROCK !","WELCOME !","HELLO !"]
+        for (i = 0; i < 50; i++) {
+            var card = document.createElement("div")
+            card.classList.add("card")
+            container.appendChild(card)
+
+            var r = parseInt(Math.random() * 256).toString(16).padStart(2, "0");
+            var g = parseInt(Math.random() * 256).toString(16).padStart(2, "0");
+            var b = parseInt(Math.random() * 256).toString(16).padStart(2, "0");
+            var code = "#" + r + g + b;
+            card.style.background = code;
+            card.innerText = code;
+            card.addEventListener(
+                "click",
+                function (event) {
+                    navigator.clipboard.write(event.target.innerText)
+                    overlay.style.transform = "scale(1)";
+                    overlay.style.background = event.target.innerText;
+                    overlay.innerText = msg[parseInt(Math.random()*msg.length)]
+                    
+                    setTimeout(
+                        function(){
+                        overlay.style.transform = "scale(0)";
+                        },
+                        500
+                    )
+
+                }
+            )
+        }
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

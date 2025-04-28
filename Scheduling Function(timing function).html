@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 300px;
+            height: 150px;
+            box-shadow: 0px 3px 4px 5px gray;
+            margin: 200px auto;
+            padding: 16px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #digit{
+            font-size: 50px;
+        }
+        button{
+            padding: 4px 16px;
+            border-radius: 2px;
+            font-weight: 700;
+            outline: none;
+            border: 2px solid gray;
+            font-size: 16px;
+            cursor: pointer;
+            /* background-color: gainsboro; */
+        }
+        button:focus{
+            background-color: gray;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="btn">Start</button> 
+        <h1 id="digit">0</h1>
+        <button class="btn" disabled>Stop</button>
+    </div>
+
+    <script>
+        
+       
+        var btn = document.querySelectorAll(".btn");
+        var digit = document.querySelector("#digit")
+
+        var counting;
+        var count=0;
+        btn[0].addEventListener(
+            "click",
+            function(){
+                counting = setInterval(
+                    function(){
+                        count++;
+                        digit.innerText = count;
+                        btn[1].disabled=false
+                        btn[0].disabled=true
+                        
+                    },
+                    1000
+                    
+                )
+            }
+        )
+
+        btn[1].addEventListener(
+            "click",
+            function(){
+               clearInterval(counting)
+               btn[0].disabled=false
+               btn[1].disabled=true
+            }
+        )
+
+      
+        
+        
+        
+        
+        
+
+
+    </script>
+    
+</body>
+</html>

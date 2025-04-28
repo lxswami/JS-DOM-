@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 100%;
+            /* height: 100vh; */
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+        .card{
+            width: 20%;
+            height: 50vh;
+            border: 2px solid green;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+
+    </div>
+    <script>
+        var container = document.querySelector(".container");
+        for(i=1;i<=20;i++){
+            var box = document.createElement("div");
+            box.classList.add("card");
+            box.style.border="none"
+            box.style.borderRadius="10px"
+            box.style.overflow="hidden"
+            box.innerHTML=`<img src=https://picsum.photos/200/300/?blur=${i}">`
+            container.appendChild(box)
+        }
+       
+        
+
+
+    </script>
+    
+</body>
+</html>

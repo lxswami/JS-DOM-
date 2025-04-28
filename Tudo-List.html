@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tudo List</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 1000px;
+            height: auto;
+            box-shadow: 0px 2px 3px 4px gray;
+            margin: 50px auto;
+            text-align: center;
+            padding: 10px;
+        }
+
+        #inp {
+            padding: 10px;
+            width: 50%;
+            border-radius: 5px;
+            border: 1px solid black;
+            outline: none;
+
+        }
+
+        #tudo_list_box {
+            margin: auto;
+            height: auto;
+            /* border: 2px solid green; */
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        li {
+            width: 100%;
+            border: 1px solid green;
+            background: lightskyblue;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            position: relative;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            
+        }
+
+        #tudo_list_box span {
+            position: absolute;
+            right: 16px;
+            background-color: red;
+            border: 1px solid yellow;
+            padding: 4px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            
+        }
+        .work_done{
+            text-decoration: line-through;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input id="inp" type="text" placeholder="Enter text here...">
+        <ul id="tudo_list_box">
+
+        </ul>
+    </div>
+
+    <script>
+        var inp = document.querySelector("#inp");
+        var TudoListBox = document.querySelector("#tudo_list_box");
+
+        inp.addEventListener(
+            "keyup",
+            function (event) {
+                //    console.log(event.key)
+                if (event.key == "Enter") {
+                    if (this.value == +"") return;
+                    
+                        // console.log(this.value);
+                        var listItem = document.createElement("li");
+                    listItem.innerHTML = `${this.value} <span>Delete</span>`;
+                    this.value = "";
+                    TudoListBox.appendChild(listItem);
+                    
+                    
+
+                    listItem.querySelector("span").addEventListener(
+                        "click",
+                        function (event) {
+                            // console.log(event)
+                            listItem.remove()
+                        }
+                    )
+
+                    listItem.addEventListener(
+                        "click",
+                        function(){
+                        listItem.classList.toggle("work_done")
+                        }
+                    )
+
+
+                }
+
+
+            }
+        )
+
+    </script>
+
+
+</body>
+
+</html>

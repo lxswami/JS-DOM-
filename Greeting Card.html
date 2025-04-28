@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Card</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 1000px;
+            height: 500px;
+            /* border: 2px solid red; */
+            margin: 100px auto;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .box {
+            width: 48%;
+            height: 100%;
+            border: 5px double green;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            padding: 10px;
+
+
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+           
+        }
+        input:focus{
+            border-bottom: 2px solid black;
+        }
+        textarea:focus{
+            border-bottom: 2px solid black;
+
+        }
+
+        .font {
+            gap: 5px;
+            display: flex;
+            align-items: center;
+           
+            
+        }
+        #fontvalue{
+            border: 1px solid black;
+            text-align: center;
+            font-weight: 600;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <div>
+                <label for="">To :</label>
+                <input onkeyup="moveHandler(this,0)" class="inp" type="text" placeholder="Enter text">
+            </div>
+            <div>
+                <label for="">From :</label>
+                <input onkeyup="moveHandler(this,1)" class="inp" type="text" placeholder="Enter text">
+            </div>
+            <div>
+                <label for="">Message :</label>
+                <textarea onkeyup="moveHandler(this,2)" class="inp" name="" id="" placeholder="Type message"></textarea>
+            </div>
+            <div>
+                <label for="">Color-Picker :</label>
+                <input onchange="colorHandler(this)" id="rang" type="color">
+            </div>
+            <div>
+                <label for="">Background Image :</label>
+                <input onchange="bgHandler(this.value)" type="text" placeholder="Put Image path">
+            </div>
+            <div>
+                <label for="">Font :</label>
+                <div class="font">
+                    <button onclick="fontHandler(1)" class="font">+</button>
+                <input id="fontvalue" value="16" type="text">
+                <button onclick="fontHandler(2)" class="font">-</button>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="box">
+            <h2 class="out">To :-</h2>
+            <h2 class="out">From :-</h2>
+            <p class="out">Message :-</p>
+        </div>
+    </div>
+
+    <script>
+        var inp = document.getElementsByClassName("inp")
+        var out = document.getElementsByClassName("out")
+        // var rang = document.getElementById("rang")
+        var box = document.getElementsByClassName("box")
+        var fontvalue = document.getElementById('fontvalue')
+
+
+
+
+
+        function moveHandler(input, flag) {
+            var result;
+            if (flag == 0) {
+                result = "To :-"
+            } else if (flag == 1) {
+                result = "From :-"
+            } else if (flag == 2) {
+                result = "Message :-"
+            }
+            out[flag].innerText = `${result} ${input.value}`
+
+        }
+
+        function colorHandler(col) {
+            box[1].style.color = col.value
+
+        }
+
+        function bgHandler(path) {
+            box[1].style.background = `url(${path})`;
+            box[1].style.backgroundSize = 'cover';
+
+        }
+        var font = 16;
+        function fontHandler(flag) {
+
+            if (flag == 1) {
+                if(font>=25) return;
+                font++
+                
+
+
+            } else if (flag == 2) {
+                if(font<=10) return;
+                font--
+                
+
+            }
+            fontvalue.value = font;
+            box[1].style.fontSize = font + "px";
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>

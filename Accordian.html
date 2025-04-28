@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>accordion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .accordian {
+            width: 80%;
+            height: auto;
+            box-shadow: 0px 2px 3px gray;
+            margin: 50px auto;
+            padding: 16px;
+        }
+
+        .box {
+            border-radius: 8px;
+            border: 1px dashed gray;
+            margin-top: 16px;
+            cursor: pointer;
+        }
+
+        .que {
+
+            display: block;
+            padding: 16px;
+            cursor: pointer;
+            position: relative;
+            font-weight: 700;
+            word-spacing: 1px;
+
+
+        }
+
+        .ans {
+            /* padding: 16px; */
+            /* display: none; */
+            height: 0;
+            overflow: hidden;
+            opacity: 0;
+            text-align: justify;
+
+        }
+
+        i {
+            font-size: 25px;
+            position: absolute;
+            right: 20px;
+            font-size: 30px;
+
+        }
+        .show{
+            height: auto;
+            padding: 16px;
+            opacity: 1;
+            /* background-color: gainsboro; */
+            /* transition: 0.5s; */
+        }
+        .icons_rotate{
+            transform: rotate(180deg);
+            /* transition: 0.2s; */
+        }
+        .box_background{
+            background-color: gainsboro;
+            transition: 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="accordian">
+        <div class="box box_background">
+            <span class="que">Can I track the location of my booked bus online? <i
+                    class="fa-solid fa-caret-up icons_rotate" ></i></span>
+            <p class="ans show">Yes, you can track your bus online by using our bus tracking app feature called “Track My
+                Bus”. This
+                feature
+                allows passengers and their families to track the live bus location. You may follow your bus on a map
+                and
+                use the information to plan your trip to the boarding point and to get off at the correct stop. Family
+                and
+                friends may also check the bus position to schedule pick-ups and ensure safety.</p>
+        </div>
+
+
+        <div class="box">
+            <span class="que">What are the advantages of purchasing a bus ticket with redBus? <i
+                    class="fa-solid fa-caret-up"></i></span>
+            <p class="ans">There are many advantages to purchasing online bus tickets with redBus. redBus is India’s
+                most trusted bus
+                ticket company, where you can book any type of private or government-owned bus. redBus allows you to
+                find
+                the different types of buses, choose the preferred bus seats, and find your nearest boarding and
+                dropping
+                points. You can also filter the buses based on timings, like morning, evening, etc. </p>
+        </div>
+
+        <div class="box">
+            <span class="que">Why book bus tickets online on redBus? <i class="fa-solid fa-caret-up"></i></span>
+            <p class="ans">Booking bus tickets online on redBus is increasingly becoming the preferred choice for
+                travellers due to its
+                numerous advantages over traditional methods. With redBus, customers can book their bus tickets
+                effortlessly
+                from the comfort of their homes, avoiding the inconvenience of standing in long lines at bus stations or
+                travel agencies. Online bus booking offers the luxury of comparing different bus schedules and operators
+                and
+                presents various discount offers and exclusive deals, resulting in significant savings. Payment security
+                is
+                another notable feature of online booking, which ensures that your financial information is
+                well-protected
+                against fraud. Additionally, customers can pick their seats, providing a customized travel experience.
+                Online bus booking platforms give real-time updates about any changes in the bus timetable, including
+                delays
+                or cancellations, enabling better planning. The convenience doesn't stop here; travellers can even
+                compare
+                onboard amenities like charging points or snacks, further enhancing the travel experience.</p>
+        </div>
+
+        <div class="box">
+            <span class="que">Do I need to create an account on the redBus site to book my bus ticket? <i
+                    class="fa-solid fa-caret-up"></i></span>
+            <p class="ans">No, you don’t have to create an account on the redBus site to book your bus ticket. But it is
+                advisable to
+                make one to accelerate the process next time you want to book bus tickets. Also, redBus has many
+                discounts
+                and offers that you can easily access if you have an account with us.</p>
+        </div>
+
+        <div class="box">
+            <span class="que">Does bus booking online cost me more? <i class="fa-solid fa-caret-up"></i></span>
+            <p class="ans">Not at all! The bus ticket price is the same as you would get from the bus operator/ counter
+                of any bus
+                ticket agency. redbus reduces the travel budget by comparing the bus ticket prices among various
+                operators,
+                making it a more cost-effective choice. Therefore, online bus booking is increasingly recognized as a
+                more
+                convenient, efficient, and economical mode of securing travel arrangements.</p>
+        </div>
+
+    </div>
+
+    <script>
+        var que = document.querySelectorAll(".que")
+        var ans = document.querySelectorAll(".ans")
+        var icons = document.querySelectorAll(".que i")
+        var box = document.querySelectorAll(".box")
+        
+
+
+        que.forEach(
+            function (values, index) {
+                values.addEventListener(
+                    "click",
+                    function () {
+                        que.forEach(
+                            function (data, i) {
+
+                                
+
+                                if (index == i){
+                                    ans[i].classList.add("show"); 
+                                    icons[i].classList.add("icons_rotate"); 
+                                    box[i].classList.add("box_background");   
+                                }else{
+                                    ans[i].classList.remove("show");
+                                    icons[i].classList.remove("icons_rotate"); 
+                                    que[i].classList.remove("box_background");
+                                    
+                                }
+
+                                
+
+                            }
+                        )
+                    }
+                )
+
+
+
+            }
+        )
+
+
+
+    </script>
+
+</body>
+
+</html>
